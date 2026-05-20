@@ -7,7 +7,7 @@ body, html {
 }
 
 body {
-    background-image: url(./images/saint-cafe-interior.jpg);
+    background-image: url(./images/saint_interior.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -20,6 +20,11 @@ body {
 @font-face {
     font-family: TitleFont;
     src: url(https://fonts.cdnfonts.com/css/helvetica-neue-555c) format('woff2');
+}
+
+.home-image {
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
 
 /* --- BUTOANE MENIU DESKTOP (Peste 769px) --- */
@@ -282,5 +287,17 @@ body {
       -webkit-user-select: none;
       touch-action: manipulation;
       cursor: pointer;
+    }
+
+    .home-image {
+        margin-top: 100px !important;
+        margin-bottom: 50px !important;
+        height: 100px !important;
+    }
+
+    body
+    {
+        background-image: none !important;
+        background-color: #2e2c27 !important;
     }
 }

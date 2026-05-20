@@ -7,7 +7,7 @@ body, html {
 
 body
 {
-    background-image: url(./images/saint-cafe-interior.jpg);
+    background-image: url(./images/saint_interior.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -113,6 +113,12 @@ body
 {
   background-color: var(--color);
   color: #fff;
+}
+
+.home-image
+{
+    margin-top: 150px;
+    margin-bottom: 100px;
 }
 
 .introduction
@@ -441,6 +447,8 @@ body
 
     body {
         background-attachment: scroll;
+        background-image: none;
+        background-color: #2e2c27;
     }
 
     .home-layer,
@@ -525,7 +533,10 @@ body
 
     .home-image
     {
-        height: 250px;
+        margin-top: 100px;
+        margin-bottom: 50px;
+
+        height: 100px;
     }
 
     .home-title

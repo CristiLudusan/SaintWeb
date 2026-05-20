@@ -199,7 +199,7 @@ form select option
    <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Saint Cafe - Rezervă o Masă</title>
+      <title>Saint Cafe - Reserve a Table</title>
       <link rel="stylesheet" href="./index-style.css">
    </head>
    
@@ -226,7 +226,7 @@ async function trimiteRezervare() {
 
     // 🔒 validare simplă
     if (!nume || !telefon || !data || !ora || !locatie) {
-      alert("Completează toate câmpurile");
+      alert("Please fill in all fields");
       return;
     }
 
@@ -244,14 +244,14 @@ async function trimiteRezervare() {
     );
 
     console.log(response);
-    alert("Rezervare trimisă cu succes!");
+    alert("Reservation submitted successfully!");
 
     // reset form
     document.getElementById("reservationForm").reset();
 
   } catch (error) {
     console.log(error);
-    alert("Eroare la trimitere");
+    alert("Error submitting reservation");
   }
 }
 
@@ -266,14 +266,14 @@ async function trimiteRezervare() {
          document.addEventListener("DOMContentLoaded", function() {
             const homeButton = document.querySelector(".button1");
             homeButton.addEventListener("click", function() {
-               window.location.href = "./index.html";
+               window.location.href = "./index-en.html";
             });
          });   
 
          document.addEventListener("DOMContentLoaded", function() {
             const reserveButton = document.querySelector(".language-switch");
             reserveButton.addEventListener("click", function() {
-               window.location.href = "./reserve-en.html";
+               window.location.href = "./reserve.html";
             });
          });
       </script>
@@ -284,13 +284,13 @@ async function trimiteRezervare() {
                 <br>
                 <div class="home-layer">
                     <button class="language-switch">
-                                    <div class="language-switch-text">EN</div>
+                                    <div class="language-switch-text">RO</div>
                                 </button>
                 <div id="row-centre">
                 <img src="./images/logo.png" alt="Coffe Cup" class="home-image">
                 <br><br><br>
                 <div class="home-buttons">
-                    <button role="button" class="button1">Înapoi la pagina principală</button>
+                    <button role="button" class="button1">Back to homepage</button>
                 </div>
                 </div>
                 </div>
@@ -300,30 +300,30 @@ async function trimiteRezervare() {
         <section>
             <div class="introduction-layer">
             <div class="introduction">
-                <h2 class="introduction-title">rezervă o masă</h2>
+                <h2 class="introduction-title">Reserve a Table</h2>
             <div class="introduction-content">
                 <form id="reservationForm">
-                    <label for="name">Nume:</label>
+                    <label for="name">Name:</label>
                     <input type="text" id="nume" required>
                     <br><br>
-                    <label for="phone">Telefon:</label>
+                    <label for="phone">Phone:</label>
                     <input type="tel" id="telefon" required>
                     <br><br>
-                    <label for="date">Data:</label>
+                    <label for="date">Date:</label>
                     <input type="date" id="data" required>
                     <br><br>
-                    <label for="time">Ora:</label>
+                    <label for="time">Time:</label>
                     <input type="time" id="ora" required>
                     <br><br>
-                    <label for="location">Interior/Terasă/Separeu</label>
+                    <label for="location">Inside/Outside/Private Lounge</label>
                     <select id="locatie" required>
-                        <option value="interior">Interior</option>
-                        <option value="terasa">Terasă</option>
-                        <option value="separeu">Separeu</option>
+                        <option value="interior">Inside</option>
+                        <option value="terasa">Outside</option>
+                        <option value="separeu">Private Lounge</option>
                     </select>
                     <br><br>
                     <button type="button" class="button1 reserve-btn" onclick="trimiteRezervare()">
-    Rezervă
+    Reserve
 </button>
                 </form>
             </div>
