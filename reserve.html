@@ -66,6 +66,108 @@ form select option
     padding: 18px 35px;
 }
 
+
+/* ===== MOBILE RESPONSIVE ===== */
+
+@media screen and (max-width: 768px)
+{
+    .home-layer,
+    .introduction-layer
+    {
+        width: 92%;
+        border-radius: 25px;
+        padding: 20px 0;
+    }
+
+    .home-image
+    {
+        height: 180px;
+    }
+
+    .home-title
+    {
+        font-size: clamp(3rem, 16vw, 5rem);
+        letter-spacing: 4px;
+    }
+
+    .introduction-title
+    {
+        font-size: clamp(1.8rem, 9vw, 3rem);
+        letter-spacing: 4px;
+        margin-bottom: 40px;
+    }
+
+    .introduction-content
+    {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 10px;
+    }
+
+    form
+    {
+        width: 100%;
+    }
+
+    form label
+    {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    form input,
+    form select
+    {
+        width: 85%;
+        font-size: 16px;
+        padding: 15px;
+        margin-bottom: 18px;
+    }
+
+    .reserve-btn
+    {
+        font-size: 18px;
+        padding: 14px 24px;
+        margin-top: 10px;
+    }
+
+    .button1
+    {
+        font-size: 16px;
+        padding: 12px 18px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .home-buttons
+    {
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .language-switch
+    {
+        top: 15px;
+        right: 15px;
+        font-size: 14px;
+        padding: 0.5em 1.2em;
+    }
+
+    .footer-content
+    {
+        margin-left: 0;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .anaf-links img
+    {
+        height: 40px;
+        margin: 5px;
+    }
+}
+
     </style>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -157,7 +259,7 @@ async function trimiteRezervare() {
                                     <div class="language-switch-text">EN</div>
                                 </button>
                 <div id="row-centre">
-                <img src="./images/coffe cup inverted.png" alt="Coffe Cup" class="home-image" height="300">
+                <img src="./images/coffe cup inverted.png" alt="Coffe Cup" class="home-image">
                 <h1 class="home-title">Saint</h1>
                 <br><br><br>
                 <div class="home-buttons">
