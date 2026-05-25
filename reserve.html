@@ -256,6 +256,69 @@ async function trimiteRezervare() {
 }
 
 </script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dataInput = document.getElementById("data");
+    const oraInput = document.getElementById("ora");
+
+    // ===== DATA MINIMĂ = AZI =====
+
+    const azi = new Date();
+
+    const an = azi.getFullYear();
+    const luna = String(azi.getMonth() + 1).padStart(2, '0');
+    const zi = String(azi.getDate()).padStart(2, '0');
+
+    const dataMinima = `${an}-${luna}-${zi}`;
+
+    dataInput.min = dataMinima;
+
+
+    // ===== INTERVAL 30 MIN =====
+
+    oraInput.step = 1800;
+
+
+    // ===== VALIDARE ORE =====
+
+    oraInput.addEventListener("change", () => {
+
+        const valoare = oraInput.value;
+
+        if (!valoare) return;
+
+        const [ore, minute] = valoare.split(":").map(Number);
+
+        const totalMinute = ore * 60 + minute;
+
+        const oraDeschidere = 8 * 60;   // 08:00
+        const oraInchidere = 23 * 60;   // 23:00
+
+        // verifică intervalul
+        if (totalMinute < oraDeschidere || totalMinute > oraInchidere) {
+
+            alert("Poți rezerva doar între 08:00 și 23:00");
+
+            oraInput.value = "";
+            return;
+        }
+
+        // verifică 30 în 30
+        if (minute !== 0 && minute !== 30) {
+
+            alert("Poți selecta doar intervale de 30 minute");
+
+            oraInput.value = "";
+        }
+
+    });
+
+});
+
+</script>
    
    <body style="background-color: #1a1a1a;">
       <script data-template-id="country-code">window.__cf_country = "RO"</script>
@@ -313,7 +376,14 @@ async function trimiteRezervare() {
                     <input type="date" id="data" required>
                     <br><br>
                     <label for="time">Ora:</label>
-                    <input type="time" id="ora" required>
+                    <input 
+                    type="time" 
+                    id="ora"
+                    min="08:00"
+                    max="23:00"
+                    step="1800"
+                    required
+                    >
                     <br><br>
                     <label for="location">Interior/Terasă/Separeu</label>
                     <select id="locatie" required>
