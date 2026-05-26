@@ -340,6 +340,50 @@ document.addEventListener("DOMContentLoaded", () => {
             });
          });
       </script>
+
+<script>
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dataInput = document.getElementById("data");
+
+    // 📅 doar azi+
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+
+    dataInput.min = `${yyyy}-${mm}-${dd}`;
+
+    generateTimeOptions();
+});
+
+function generateTimeOptions() {
+
+    const oraInput = document.getElementById("ora");
+
+    const start = 8 * 60;   // 08:00
+    const end = 23 * 60;   // 23:00
+
+    oraInput.innerHTML = "";
+
+    for (let t = start; t <= end; t += 30) {
+
+        const h = String(Math.floor(t / 60)).padStart(2, "0");
+        const m = String(t % 60).padStart(2, "0");
+
+        const opt = document.createElement("option");
+        opt.value = `${h}:${m}`;
+        opt.textContent = `${h}:${m}`;
+
+        oraInput.appendChild(opt);
+    }
+}
+
+</script>
+
+</script>
       <div class="main">
       <div id="container">
         <section>              
@@ -376,14 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <input type="date" id="data" required>
                     <br><br>
                     <label for="time">Ora:</label>
-                    <input 
-                    type="time" 
-                    id="ora"
-                    min="08:00"
-                    max="23:00"
-                    step="1800"
-                    required
-                    >
+                    <select id="ora" required></select>
                     <br><br>
                     <label for="location">Interior/Terasă/Separeu</label>
                     <select id="locatie" required>
