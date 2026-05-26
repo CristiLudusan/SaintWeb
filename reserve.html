@@ -318,6 +318,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+function getToday() {
+    return new Date().toISOString().split("T")[0];
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dataInput = document.getElementById("data");
+
+    const today = getToday();
+
+    // setare min (pentru desktop + android)
+    dataInput.min = today;
+
+    // 🔥 fix iOS: dacă user schimbă manual
+    dataInput.addEventListener("change", () => {
+
+        if (dataInput.value < today) {
+
+            alert("Nu poți selecta o dată din trecut");
+
+            // reset la ziua de azi
+            dataInput.value = today;
+        }
+    });
+
+});
+
 </script>
    
    <body style="background-color: #1a1a1a;">
