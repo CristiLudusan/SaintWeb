@@ -19,7 +19,8 @@ form label
 }
 
 form input,
-form select
+form select,
+form textarea
 {
     width: 70%;
     max-width: 500px;
@@ -41,8 +42,17 @@ form select
     outline: none;
 }
 
+form textarea
+{
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
 form input:focus,
-form select:focus
+form select:focus,
+form textarea:focus
 {
     border-color: white;
 
@@ -57,6 +67,20 @@ form select option
 {
     background: #1a1a1a;
     color: white;
+}
+
+form input::placeholder,
+form textarea::placeholder
+{
+    color: rgba(255,255,255,0.3);
+}
+
+.optional-label
+{
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    font-family: Arial, sans-serif;
+    margin-left: 8px;
 }
 
 .reserve-btn
@@ -155,7 +179,8 @@ form select option
     }
 
     form input,
-    form select {
+    form select,
+    form textarea {
         width: 85%;
         max-width: none;
 
@@ -209,7 +234,7 @@ form select option
 
 client
   .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject("saintcafe"); // 🔴 schimbă aici
+  .setProject("saintcafe");
 
 const databases = new Appwrite.Databases(client);</script>
 
@@ -223,23 +248,27 @@ async function trimiteRezervare() {
     const data = document.getElementById("data").value;
     const ora = document.getElementById("ora").value;
     const locatie = document.getElementById("locatie").value;
+    const persoane = document.getElementById("persoane").value;
+    const mentiuni = document.getElementById("mentiuni").value;
 
-    // 🔒 validare simplă
+    // validare câmpuri obligatorii
     if (!nume || !telefon || !data || !ora || !locatie) {
       alert("Completează toate câmpurile");
       return;
     }
 
     const response = await databases.createDocument(
-      "6a0883d5003cc55123c5",     // 🔴 schimbă
-      "reservations",   // 🔴 schimbă
+      "6a0883d5003cc55123c5",
+      "reservations",
       Appwrite.ID.unique(),
       {
         nume: nume,
         telefon: telefon,
         data_rezervare: data,
         ora: ora,
-        locatie: locatie
+        locatie: locatie,
+        persoane: persoane ? parseInt(persoane) : null,
+        mentiuni: mentiuni || null
       }
     );
 
@@ -331,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // setare min (pentru desktop + android)
     dataInput.min = today;
 
-    // 🔥 fix iOS: dacă user schimbă manual
+    // fix iOS: dacă user schimbă manual
     dataInput.addEventListener("change", () => {
 
         if (dataInput.value < today) {
@@ -375,7 +404,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dataInput = document.getElementById("data");
 
-    // 📅 doar azi+
+    // doar azi+
     const now = new Date();
     const yyyy = now.getFullYear();
     const mm = String(now.getMonth() + 1).padStart(2, '0');
@@ -410,7 +439,6 @@ function generateTimeOptions() {
 
 </script>
 
-</script>
       <div class="main">
       <div id="container">
         <section>              
@@ -437,24 +465,30 @@ function generateTimeOptions() {
                 <h2 class="introduction-title">rezervă o masă</h2>
             <div class="introduction-content">
                 <form id="reservationForm">
-                    <label for="name">Nume:</label>
+                    <label for="nume">Nume:</label>
                     <input type="text" id="nume" required>
                     <br><br>
-                    <label for="phone">Telefon:</label>
+                    <label for="telefon">Telefon:</label>
                     <input type="tel" id="telefon" required>
                     <br><br>
-                    <label for="date">Data:</label>
+                    <label for="data">Data:</label>
                     <input type="date" id="data" required>
                     <br><br>
-                    <label for="time">Ora:</label>
+                    <label for="ora">Ora:</label>
                     <select id="ora" required></select>
                     <br><br>
-                    <label for="location">Interior/Terasă/Separeu</label>
+                    <label for="locatie">Interior/Terasă/Separeu</label>
                     <select id="locatie" required>
                         <option value="interior">Interior</option>
                         <option value="terasa">Terasă</option>
                         <option value="separeu">Separeu</option>
                     </select>
+                    <br><br>
+                    <label for="persoane">Număr persoane <span class="optional-label">(opțional)</span></label>
+                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4">
+                    <br><br>
+                    <label for="mentiuni">Mențiuni <span class="optional-label">(opțional)</span></label>
+                    <textarea id="mentiuni" placeholder="ex: masă lângă fereastră, aniversare..."></textarea>
                     <br><br>
                     <button type="button" class="button1 reserve-btn" onclick="trimiteRezervare()">
     Rezervă

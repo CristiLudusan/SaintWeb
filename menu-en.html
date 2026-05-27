@@ -61,231 +61,226 @@
         // MENU DATA
         const rawMenu = `
 Coffee
-Espresso // ground coffee 17g // 30ml // 11 RON
-Espresso Macchiato // ground coffee 8g, milk foam // 40ml // 12 RON
-Long Black // ground coffee 17g // 100ml // 13 RON
-Americano // ground coffee 8g // 100ml // 10 RON
-Cappuccino // ground coffee 8g, milk foam // 150ml // 15 RON
-Cortado // ground coffee 17g, milk foam // 100ml // 14 RON
-Latte // ground coffee 8g, milk foam // 300ml // 18 RON
-Ice Latte // ground coffee 8g, milk foam, ice // 300ml // 18 RON
-Flat White // ground coffee 17g, milk foam // 200ml // 17 RON
-Aeropress // ground coffee 17g // 200ml // 20 RON
-V60 // ground coffee 17g // 200ml // 20 RON
-Chemex // ground coffee 30g // 400ml // 26 RON
-Cold Brew // ground coffee 15g // 150ml // 18 RON
-Cold Brew Tonic // ground coffee 17g, tonic water // 200ml // 21 RON
-Orange Espresso // ground coffee 17g, fresh orange juice // 150ml // 20 RON
-Plant-based milk // coconut, oat, almond // 4 RON
-Extra syrup // coconut, vanilla, caramel, salted caramel, hazelnut // 10ml // 3 RON
-
+Espresso Origine // ground coffee 17g // 30ml // 13 LEI
+Espresso House Blend // ground coffee 17g // 30ml // 11 LEI
+Espresso Macchiato // ground coffee 8g, milk foam // 40ml // 13 LEI
+Long Black // ground coffee 17g // 100ml // 14 LEI
+Americano // ground coffee 8g // 100ml // 11 LEI
+Cappuccino // ground coffee 8g, milk foam // 150ml // 16 LEI
+Cortado // ground coffee 17g, milk foam // 60ml // 15 LEI
+Latte // ground coffee 8g, milk foam // 300ml // 19 LEI
+Ice Latte // ground coffee 8g, milk foam, ice // 300ml // 19 LEI
+Flat White // ground coffee 17g, milk foam // 200ml // 18 LEI
+Aeropress // ground coffee 17g // 200ml // 22 LEI
+V60 // ground coffee 17g // 200ml // 22 LEI
+Chemex // ground coffee 30g // 400ml // 29 LEI
+Coconut Frizz Cold Brew // ground coffee 17g, coconut milk, ice // 200ml // 27 LEI
+Cold Brew // ground coffee 15g // 150ml // 18 LEI
+Cold Brew Tonic // ground coffee 17g, tonic water // 200ml // 24 LEI
+Orange Espresso // ground coffee 17g, fresh orange juice // 150ml // 20 LEI
+Plant-based milk // coconut, oat, almond // 4 LEI
+Extra syrup // coconut, vanilla, caramel, salted caramel, hazelnut // 10ml // 3 LEI
 Drinks
-Coca Cola // 250ml // 11 RON
-Coca Cola Zero // 250 ml // 11 RON
-Fritz Cola // 330 ml // 17 RON
-Fritz Cola Zero // 330ml // 17 RON
-Mellow Mango // 330ml // 17 RON
-Fentimans Ginger Beer // 275 ml // 17 RON
-Fentimans Naturally Light Tonic // 200ml // 14 RON
-Fentimans Grapefruit Tonic // 200ml // 14 RON
-Fentimans Oriental Yuzu Tonic // 200ml // 14 RON
-C-Side Tonic // 330ml // 16 RON
-Still / sparkling water LURISIA // 330ml // 10 RON
-Still / sparkling water LURISIA // 750ml // 18 RON
-
-Lemonade // 330ml // 20 RON
-Fresh // orange, grapefruit, mixed // 250ml // 22 RON
-Ginger Boost // 100ml // 16 RON
-Matcha // 200ml // 20 RON
-Turmeric Latte // 200ml // 18 RON
-Tea infusion // mint, green, black, ginger, fruits, vanilla, lavender // 200ml // 17 RON
-Hot chocolate // dark, white // 200ml // 17 RON
-
+Coca Cola // 250ml // 12 LEI
+Coca Cola Zero // 250ml // 12 LEI
+Fritz Cola // 330ml // 18 LEI
+Fritz Cola Zero // 330ml // 18 LEI
+Mellow Mango // 330ml // 20 LEI
+Mellow Lime // 330ml // 20 LEI
+Mellow Orange // 330ml // 20 LEI
+Fentimans Ginger Beer // 275ml // 18 LEI
+Fentimans Naturally Light Tonic // 200ml // 15 LEI
+Fentimans Grapefruit Tonic // 200ml // 15 LEI
+Fentimans Oriental Yuzu Tonic // 200ml // 15 LEI
+C-Side Tonic // 330ml // 18 LEI
+Still / Sparkling Water LURISIA // 330ml // 10 LEI
+Still / Sparkling Water LURISIA // 750ml // 18 LEI
+Lemonade // 300ml // 22 LEI
+Fresh // orange, grapefruit, mixed // 250ml // 24 LEI
+Ginger Boost // 100ml // 18 LEI
+Matcha // 200ml // 20 LEI
+Iced Matcha // 300ml // 22 LEI
+Turmeric Latte // 200ml // 18 LEI
+Herbal Tea // mint, green, black, ginger, fruit, vanilla, lavender // 200ml // 17 LEI
+Hot Chocolate // dark, white // 200ml // 17 LEI
 Beer
-Peroni Nastro Azzuro // 330ml // 14 RON
-Peroni Stile Capri // 330ml // 15 RON
-Peroni Fără alcool // 330ml // 14 RON
-
+Peroni Nastro Azzuro // 330ml // 14 LEI
+Peroni Stile Capri // 330ml // 15 LEI
+Peroni Non-Alcoholic // 330ml // 14 LEI
 Cocktails
-CLASSICE
-Aperol Spritz // Prosecco, Aperol, sparkling water, ice, orange // 28 RON
-Mojito // rum, lime juice, sugar syrup, mint, sparkling water // 28 RON
-Hugo // Prosecco, sparkling water, elderflower syrup, lime, mint // 28 RON
-Mimosa // Prosecco, orange juice, dandelion syrup // 25 RON
-Kir Royal // Prosecco, creme de cassis // 27 RON
-Espresso Martini // vodka, Kahlua, espresso, sugar syrup // 30 RON
-Campari Spritz // campari, Prosecco, sparkling water, orange // 28 RON
-Campari Orange // campari, orange juice // 25 RON
-Pornstar Martini // vanilla vodka, passion fruit liqueur, vanilla syrup, lime juice // 32 RON
-Fall Aperol Spritz // Prosecco, Aperol, pear juice, sparkling water, cinnamon, ice // 30 RON
-S'mores Espresso Martini // Vanilla vodka, Kahula, Espresso, marshmallow syrup, maple syrup // 35 RON
-Sugar Cookie Martini // Vanilla, Vodka, Baileys, cake liqueur // 28 RON
-Grandpa's Cake // Vodka, red apple juice, cranberry juice, caramel syrup, lime juice, cinnamon, ice // 30 RON
-Screaming Orgasm // Vodka, Baileys, Amaretto, Kahula, almond milk, liquid cream, ice // 38 RON
-Apple Pie On The Rocks // Apple cider, whiskey, Vanilla vodka, ice // 28 RON
-Creme Brulee Whiskey // Whiskey, Baileys, sugar syrup, egg white, powdered sugar // 30 RON
-Hot Baileys // Baileys, Vodka, milk foam, cinnamon syrup // 32 RON
-ROM
-Cuba Libre // rum, cola, lime juice // 30 RON
-Mai Tai // rum, lime juice, orange curacao, almond syrup // 35 RON
-Pina Colada // rum, pineapple juice, cream // 30 RON
-Dark'n Stormy // rum, ginger beer, lime juice // 33 RON
-Daiquiri // rum, lime juice, strawberry puree, grenadine syrup // 35 RON
-White Kiss // rum, coconut milk, lemon juice, cinnamon syrup // 32 RON
+CLASSICS
+Pornstar Martini // vanilla vodka, passion fruit liqueur, lime juice, vanilla syrup, Prosecco // 32 LEI
+Espresso Martini // vodka, Kahlua, espresso, sugar syrup // 31 LEI
+Cuba Libre // rum, cola, lime juice // 30 LEI
+Gin & Tonic // gin, tonic water, lime // 30 LEI
+Pina Colada // rum, pineapple juice, whipped cream // 30 LEI
+Aperol Spritz // prosecco, aperol, sparkling water, ice, orange // 29 LEI
+Campari Spritz // campari, prosecco, sparkling water, ice, orange // 29 LEI
+Mojito // rum, lime juice, sugar syrup, mint, sparkling water // 29 LEI
+Hugo // prosecco, sparkling water, elderflower syrup, lime, mint // 29 LEI
+Cosmopolitan // vodka, cranberry juice, cointreau, lime juice // 29 LEI
+Kir Royal // prosecco, crème de cassis // 28 LEI
+Campari Orange // campari, orange juice // 26 LEI
+Mimosa // prosecco, orange juice, dandelion syrup // 26 LEI
+RUM
+Mai Tai // rum, lime juice, orange curacao, almond syrup // 35 LEI
+Daiquiri // rum, lime juice, strawberry puree, grenadine syrup // 35 LEI
+White Kiss // rum, coconut milk, lemon juice, cinnamon syrup // 33 LEI
+Dark'n Stormy // rum, ginger beer, lime juice // 33 LEI
 GIN
-Gin & Tonic // gin, tonic water, lime // 30 RON
-Negroni // gin, campari, vermouth // 30 RON
-Martini // gin, vermouth // 32 RON
-London Mule // gin, ginger beer, lime // 30 RON
-Blue Saint // gin, elderflower syrup, blue curacao, egg white // 30 RON
-French 75 // gin, lemon, sugar syrup, Prosecco // 28 RON
-Mango Gin Frizz // gin, mango juice, sugar syrup, lime juice, passion fruit syrup, sprite, mint // 35 RON
+Mango Gin Frizz // gin, mango juice, sugar syrup, lime juice, passion fruit syrup, sprite, mint // 36 LEI
+Martini // gin, martini // 32 LEI
+London Mule // gin, ginger beer, lime // 32 LEI
+Blue Saint // gin, elderflower cordial, blue curacao, egg white // 31 LEI
+Negroni // gin, campari, vermouth // 30 LEI
+Kinky Peachy // gin, white peach syrup, lemon, egg white, sugar syrup // 29 LEI
+French 75 // gin, lemon, sugar syrup, prosecco // 28 LEI
+Bee's Knee // gin, lemon, honey // 28 LEI
 VODKA
-Cosmopolitan // vodka, cranberry juice, cointreau, lime juice // 27 RON
-Moscow Mule // vodka, ginger beer, lime // 30 RON
-White Russian // vodka, coffee liqueur, liquid cream // 35 RON
-Black Saint // vodka, coffee liqueur, ginger beer, blackcurrant liqueur // 45 RON
-Sex On A Snowbank // vodka, coconut milk, white chocolate cream, vanilla bitters // 35 RON
-Spring Rain // vodka, lime juice, blue curacao, ginger beer // 31 RON
+Black Saint // vodka, coffee liqueur, ginger beer, blackcurrant liqueur // 42 LEI
+White Russian // vodka, coffee liqueur, liquid cream // 35 LEI
+Sex On A Snowbank // vodka, coconut milk, hot chocolate cream, vanilla bitters // 36 LEI
+Spring Rain // vodka, lime juice, blue curacao, ginger beer // 32 LEI
+Moscow Mule // vodka, ginger beer, lime // 32 LEI
+Grandpa's Cake // vodka, red apple juice, cranberry juice, caramel syrup, lime juice, cinnamon // 30 LEI
 WHISKEY
-Old Fashioned // bourbon, sugar, angostura bitter // 30 RON
-Manhattan // whiskey, vermouth, angostura bitter // 31 RON
-Whiskey Sour // bourbon, lemon juice, sugar, angostura bitter // 30 RON
-Boulevardier // campari, lemon juice, sugar, angostura bitter, egg white // 30 RON
-Godfather // amaretto, whiskey // 29 RON
-Naked On The Bells // bourbon, yellow chartreuse liqueur, lime juice, mezcal // 38 RON
+Naked On The Bells // bourbon, yellow chartreuse liqueur, lime juice, mezcal // 36 LEI
+Whiskey Sour // bourbon, lemon juice, sugar, angostura bitters // 35 LEI
+Manhattan // whiskey, vermouth, angostura bitters // 34 LEI
+Boulevardier // whiskey, campari, lemon juice, sugar, angostura bitters // 33 LEI
+Old Fashioned // bourbon, sugar, angostura bitters // 33 LEI
+Godfather // amaretto, whiskey // 32 LEI
 TEQUILA
-Mexican Mule // tequila, ginger beer, lime juice // 30 RON
-Paloma // tequila, lime, sugar syrup, tonic water, grapefruit // 28 RON
-Siesta // tequila, campari, grapefruit juice, lime juice, sugar syrup // 28 RON
-Todos Santos // tequila, cointreau, lime juice // 28 RON
-Chilly Mango // tequila, lime juice, grapefruit juice, agave syrup, chilli sauce, mango puree // 30 RON
-Tequila Sour // tequila, aperol, strawberry syrup, lemon juice, egg white // 28 RON
-Tequila Sunrise // tequila, orange juice, grenadine syrup // 29 RON
-
-Mocktails
-Apple Pie Sip // apple juice, lime, apple pie syrup, vanilla sugar, cinnamon // 22 RON
-Grandma's Cake // apples, cinnamon, strawberry puree, caramel syrup, cranberry juice, apple juice // 25 RON
-Gin & Pear Affair // non-alcoholic gin, pear nectar, lime, honey syrup, nutmeg // 30 RON
-
+Chilly Mango // tequila, lime juice, grapefruit juice, agave syrup, chilli sauce, mango puree // 33 LEI
+Mexican Mule // tequila, ginger beer, lime juice // 32 LEI
+Tequila Sour // tequila, aperol, strawberry syrup, lemon juice, egg white // 30 LEI
+Tequila Sunrise // tequila, orange juice, grenadine syrup // 29 LEI
+Paloma // tequila, lime, sugar syrup, tonic water, grapefruit // 29 LEI
+Siesta // tequila, campari, grapefruit juice, lime juice, sugar syrup // 29 LEI
+Todos Santos // tequila, cointreau, lime juice // 29 LEI
 Shots
-Jelly Fish // campari, cointreau, gin Baileys // 20ml // 12 RON
-Lemon Drops // vodka, lemon juice, sugar syrup // 20ml // 7 RON
-B52 // coffee liqueur, cointreau, Baileys // 12 RON
-Tequila Shots // 20ml // 12 RON
-Jagermeister // 20ml // 12 RON
-Kamikaze // vodka, blue curacao, lemon juice // 20ml x 5 // 45 RON
-Alligator Sperm // melon liqueur, pineapple juice, cream // 20ml x 5 // 42 RON
-Wet Pussy // vodka, peach tree, cranberry juice, pineapple juice // 20ml x 5 // 45 RON
-Hot Chocolate Baileys // Baileys, dark hot chocolate, whipped cream // 20ml x 5 // 38 RON
-Mulled Wine // 20ml // 25 RON
-
-Non-Alcoholic
-Virgin London Mule // non-alcoholic gin, ginger beer, lime // 30 RON
-Virgin Gin&Tonic // non-alcoholic gin, tonic water, lime // 30 RON
-Virgin Mango Gin Frizz // non-alcoholic gin, mango juice, sugar syrup, lime juice, passion fruit syrup, sprite, mint // 35 RON
-Grandma's Cake // apples, cinnamon, strawberry puree, caramel syrup, cranberry juice, apple juice // 25 RON
-Safe Sex // orange juice, grenadine syrup // 20 RON
-Red Devil // cranberry juice, orange juice, lime juice, grenadine syrup // 24 RON
-Safe Strawberry Daiqiri // strawberry syrup, lime juice, sprite, strawberries // 23 RON
-Raspberry Ginger Frizz // lime juice, sugar syrup, raspberry puree, mint, ginger beer // 24 RON
-
+Clase Azul // 23 LEI
+Don Julio Reposado // 18 LEI
+Patron Anejo // 16 LEI
+Mama Mia Limoncello // 15 LEI
+Tatratea // 13 LEI
+Jagermeister // 13 LEI
+B52 // coffee liqueur, cointreau, Baileys // 14 LEI
+Jelly Fish // campari, cointreau, gin, Baileys // 12 LEI
+Kamikaze x 5 // vodka, blue curacao, lemon juice // 45 LEI
+Wet Pussy x 5 // vodka, peach tree, cranberry juice, pineapple juice // 45 LEI
+Lemon Drops x 5 // vodka, lemon juice, sugar syrup // 40 LEI
+Non-Alcoolics
+Virgin Mango Gin Frizz // non-alcoholic gin, mango juice, sugar syrup, lime juice, passion fruit syrup, sprite, mint // 36 LEI
+Virgin London Mule // non-alcoholic gin, ginger beer, lime // 31 LEI
+Virgin Gin & Tonic // non-alcoholic gin, tonic water, lime // 31 LEI
+Grandma's Cake // apple, cinnamon, strawberry puree, caramel syrup, cranberry juice, apple juice // 28 LEI
+Raspberry Ginger Frizz // lime juice, sugar syrup, raspberry puree, ginger beer, mint // 29 LEI
+Red Devil // cranberry juice, orange juice, lime juice, grenadine syrup // 26 LEI
+Safe Strawberry Daiquiri // strawberry syrup, lime juice, sprite, strawberries // 27 LEI
+Safe Sex // orange juice, grenadine syrup // 23 LEI
 Spirits
 WHISKEY
-Bulleit Bourbon // 40ml // 18 RON
-Gentleman Jack // 40ml // 18 RON
-Akashi // 40ml // 25 RON
-Hibiki // 40ml // 39 RON
+Bulleit Bourbon // 40ml // 20 LEI
+Gentleman Jack // 40ml // 18 LEI
+Akashi // 40ml // 25 LEI
+Hibiki // 40ml // 40 LEI
 COGNAC
-Hennesey Vs // 40ml // 27 RON
-Hine Vsop // 40ml // 22 RON
-Courvoisier Xo // 40ml // 49 RON
+Hennessy VS // 40ml // 28 LEI
+Hine VSOP // 40ml // 24 LEI
+Courvoisier XO // 40ml // 49 LEI
 VODKA
-Absolut Flavours // 40ml // 18 RON
-Ciroc // 40ml // 20 RON
-Finlandia // 40ml // 15 RON
-Grey Goose // 40ml // 28 RON
-Haku // 40ml // 30 RON
+Absolut Flavours // 40ml // 19 LEI
+Ciroc // 40ml // 25 LEI
+Finlandia // 40ml // 16 LEI
+Grey Goose // 40ml // 28 LEI
+Haku // 40ml // 30 LEI
 GIN
-Tanqueray // 40ml // 14 RON
-Gin Mare // 20 RON
-Hendrick's // 40ml // 18 RON
-Ukiyo Yuzu // 40ml // 16 RON
-Pușcălupi // 40ml // 36 RON
-ROM
-Havana Spiced // 40ml // 20 RON
-Bumbu Xo // 40ml // 30 RON
-Conde De Cuba // 40ml // 35 RON
-Don Papa 7y // 40ml // 35 RON
-Diplomatico 12y // 25 RON
-TEQUILA
-Don Julio Reposado // 40ml // 25 RON
-1800 Silver // 40ml // 24 RON
-LIQUEURS
-Sambuca // 40ml // 10 RON
-Disaronno // 40ml // 10 RON
-Mama Mia Limoncello // 40 ml // 14 RON
-Tatratea // 40ml // 16 RON
-
-Snacks
+Gin Mare // 22 LEI
+Hendrick's // 40ml // 20 LEI
+Ukiyo Yuzu // 40ml // 17 LEI
+Pușcălupi // 40ml // 36 LEI
+RUM
+Bumbu XO // 40ml // 25 LEI
+Conde De Cuba // 40ml // 35 LEI
+Don Papa 7y // 40ml // 28 LEI
+Diplomatico 12y // 27 LEI
+Bites
 PLATES
-Saint Plate // olives, parmesan, grapes, crackers, prosciutto crudo // 200gr // 29 RON
-Cheese Plate // gorgonzola, parmesan, matured cheddar, brie, walnuts, grapes // 500gr // 68 RON
-Gourmet Plate // bresaola, fuet salami, prosciutto crudo, olives, crackers // 400gr // 68 RON
-Trio Starter // classic hummus, eggplant salad, mushroom zacusca, toast // 300gr // 38 RON
-Green Olives // 140 gr // 15 RON
-Chips // 50gr // 10 RON
-Semifreddo // 100gr // 19 RON
-CANNED
-Sardines // 115gr // 45 RON
-Mussels // 110gr // 45 RON
-Tuna Fillet // 120gr // 40 RON
-CROISSANTS
-Butter Croissant // 8 RON
-Chocolate Croissant // 11 RON
-
-Wine by bottle
-WHITE
-Viognier Secret de Famille 2023, Cotes du Rhone AOC, 12.5%// 750ml // 120 RON
-Pinot Grigio - Implicit, 11.5% // 750ml // 95 RON
-Sauvignon Blanc Casas del Bosque Collection 2024, 13.5% // 750ml // 120 RON
-Aragosta 2024, Vermentino di Sardegna DOC, 12.5% // 750ml // 95 RON
-ROSE
-La Plage Rose 12.5% // 750ml // 95 RON
-RED
-Vitis Nostra Primitivo 2023, Puglia IGT, 13.5% // 750ml // 120 RON
-Syrah 2021, Cotes du Rhone AOC, 13.5% // 750ml // 120 RON
-Carmenere Reserva 2021, 13.5% // 750ml // 120 RON
-Fetească Neagră - Implicit, 14.5% // 750ml // 95 RON
-SPARKLING
-Rotari Cuvee'28 Brut, Metodo Classico, Trento DOC, 12.5% // 750ml // 95 RON
-Cremant d'Alsace, 12% // 750ml // 145 RON
-PROSECCO
-Maschio dei Cavalieri Prosecco Valdobbiadene Superiore DOCG extra dry, 11% // 750ml // 120 RON
-Terre di Marca Prosecco Alb Extra Dry Bio Millessimato, 11% // 750ml // 95 RON
-Millesimato Brut Prosecco Superiore, Valdobbiadene DOGC, 11% // 750ml // 120 RON
-Cartizze Brut Villa Sandi Superiore DOCG, 11.5% // 750ml // 290 RON
-
-Wine by glass
-WHITE
-Sauvignon Blanc Casas del Bosque Collection 2024, 13.5% // 150ml // 27 RON
-Aragosta 2024, Vermentino di Sardegna DOC, 12.5% // 150ml // 23 RON
-ROSE
-La Plage Rose 12.5% // 150ml // 23 RON
-RED
-Vitis Nostra Primitivo 2023, Puglia IGT, 13.5% // 150ml // 27 RON
-Fetească Neagră - Implicit, 14.5% // 150ml // 23 RON
-SPARKLING
-Rotari Cuvee'28 Brut, Metodo Classico, Trento DOC, 12.5% // 150ml // 25 RON
-PROSECCO
-Terre di Marca Prosecco Alb, Extra Dry Bio Millessimato, 11% // 150ml // 23 RON
-Millesimato Brut Prosecco Superiore, Valdobbiadene, 11% // 150ml // 27 RON
-
-Sips Of The Season
-Biscoff Latte // ground coffee 17g, milk foam, biscoff syrup, cinnamon, whipped cream, biscoff biscuits // 24 RON
-Gingerbread Latte // ground coffee 17g, milk foam, vanilla syrup, gingerbread syrup, cinnamon, nutmeg, brown sugar, anise, whipped cream // 26 RON
-Pumpkin Spice Latte // ground coffee 17g, milk foam, vanilla syrup, cinnamon, nutmeg, brown sugar, anise, whipped cream // 28 RON
-Chai Latte // milk foam, chai latte syrup // 17 RON
+Saint Plate // olives, parmesan, grapes, crackers, prosciutto crudo // 200gr // 29 LEI
+Cheese Plate // gorgonzola, parmesan, aged cheddar, brie, walnuts, grapes // 500gr // 75 LEI
+Gourmet Plate // bresaola, fuet salami, prosciutto crudo, olives, crackers // 400gr // 75 LEI
+Trio Starter // classic hummus, eggplant salad, mushroom zacuscă, toasted bread // 300gr // 38 LEI
+Mixt Plate // parmesan, aged cheddar, prosciutto crudo, fuet salami, grapes, olives, crackers // 600gr // 80 LEI
+CONSERVAS
+Sardines // 115gr // 45 LEI
+Mussels // 110gr // 45 LEI
+Tuna Fillet // 120gr // 40 LEI
+Green Olives // 140gr // 15 LEI
+Chips // 50gr // 10 LEI
+DESSERTS
+Butter Croissant // 8 LEI
+Chocolate Croissant // 11 LEI
+Semifreddo // 100gr // 19 LEI
+Bottled Wines
+RED (ROMANIA)
+Cuvee Uberland, Cramele Recas, DOC-CMD // 750ml // 290 LEI
+Castel Vlădoianu, Casa de Vinuri Cotnari, DOC CT Cotnari, Limited Edition // 750ml // 170 LEI
+RED (ITALY)
+Secrets of The World, Primitivo Susumaniello, Salento, Puglia, DOC // 750ml // 120 LEI
+Ilmo, Primitivo di Manduria, Puglia, La Pruina Salento, DOC // 750ml // 270 LEI
+La Prata Monferrato, Azienda Bersano, Piemonte DOC, Nebbiolo // 750ml // 95 LEI
+RED (FRANCE)
+Les Cerises, Domaine Boissezon Guiraud, AOC St. Chinian, Syrah // 750ml // 110 LEI
+RED (REPUBLICA MOLDOVA)
+Nocturne, Crama Purcari, Rara Neagră // 750ml // 130 LEI
+WHITE (ROMANIA)
+Implicit Pinot Grigio, Cramele Recas, Dealurile Banatului, DOC-CMD Recaș // 750ml // 115 LEI
+Sauvignon Blanc, Crama SERVE, DOC Dealu Mare, Terra Romana, Fetească Albă // 750ml // 145 LEI
+Solo Quinta, Cramele Recas, Dealurile Banatului, DOC-CMD Recaș // 750ml // 215 LEI
+WHITE (ITALIA)
+Roero Arneis, Bersano Vini, Piemonte, DOCG (Arneis 100%) // 750ml // 140 LEI
+Pruina, Salento Bianco di Negroamaro // 750ml // 185 LEI
+ROSE (ROMANIA)
+Cuvee Sissi, Crama SERVE, DOC Dealu Mare, Pinot Noir // 750ml // 180 LEI
+ROSE (ITALY)
+Piemonte, Azienda Bersano, DOC Rosato, Joy, Barbera // 750ml // 105 LEI
+SPARKLING & FRIZZANTE
+Azienda Ballenda, Prosecco DOC, Ex Dry // 750ml // 110 LEI
+Azienda Ballenda Valdobbiadene, Prosecco Superiore DOCG, San Fermo Brut // 750ml // 140 LEI
+Terre di Marca, Prosecco DOC Brut Bio // 750ml // 105 LEI
+Cartizze Villa Sandi, Superiore DOCG Brut // 750ml // 290 LEI
+CHAMPAGNE
+Dom Perignon Brut // 750ml // 2200 LEI
+Laurent Perrier Rosé // 750ml // 700 LEI
+Laurent Perrier La Cuvée Brut // 750ml // 500 LEI
+Wine by Glass
+RED (ITALY)
+Secrets of The World, Primitivo Susumaniello, Salento, Puglia, DOC // 150ml // 27 LEI
+La Prata Monferrato, Azienda Bersano, Piemonte DOC, Nebbiolo // 150ml // 24 LEI
+WHITE (ROMANIA)
+Implicit Pinot Grigio, Cramele Recas, Dealurile Banatului, DOC-CMD Recaș // 150ml // 24 LEI
+WHITE (ITALY)
+Roero Arneis, Bersano Vini, Piemonte, DOCG (Arneis 100%) // 150ml // 27 LEI
+ROSE (ITALY)
+Piemonte, Azienda Bersano, DOC Rosato, Joy, Barbera // 150ml // 24 LEI
+SPARKLING & FRIZZANTE
+Azienda Ballenda, Prosecco Superiore DOCG Valdobbiadene, San Fermo Brut // 150ml // 31 LEI
+Terre di Marca, Prosecco DOC Brut Bio // 150ml // 27 LEI
+Summer Sips
+Aperol Spritz // prosecco, aperol, sparkling water, ice, orange // 29 LEI
+Hugo // prosecco, sparkling water, elderflower syrup, lime, mint // 29 LEI
+Limoncello Spritz // limoncello, prosecco, sparkling water, ice, mint // 29 LEI
+Campari Spritz // campari, prosecco, sparkling water, orange // 29 LEI
+Cherry Negroni // campari, vermouth, cherry liqueur // 30 LEI
+Beerol Spritz // aperol, peroni capri // 30 LEI
+Bicicleta Spritz // white wine, campari, sparkling water // 29 LEI
+Ticky's
+Saint's Ticky // rum, peach syrup, lime juice, sugar syrup, mint // 32 LEI
+Pina Colada // rum, pineapple juice, whipped cream // 30 LEI
+Jungle Bird // rum, campari, pineapple juice, sugar syrup, lime juice // 30 LEI
+Aku Aku // brandy, pineapple juice, lime juice, sugar syrup, angostura // 30 LEI
+Alone in Mexico // tequila, lime juice, hibiscus syrup, ginger beer, angostura // 29 LEI
 `;
 
         function parseMenu(text) {

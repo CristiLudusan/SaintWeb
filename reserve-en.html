@@ -19,7 +19,8 @@ form label
 }
 
 form input,
-form select
+form select,
+form textarea
 {
     width: 70%;
     max-width: 500px;
@@ -41,8 +42,17 @@ form select
     outline: none;
 }
 
+form textarea
+{
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.5;
+    font-family: Arial, sans-serif;
+}
+
 form input:focus,
-form select:focus
+form select:focus,
+form textarea:focus
 {
     border-color: white;
 
@@ -57,6 +67,20 @@ form select option
 {
     background: #1a1a1a;
     color: white;
+}
+
+form input::placeholder,
+form textarea::placeholder
+{
+    color: rgba(255,255,255,0.3);
+}
+
+.optional-label
+{
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+    font-family: Arial, sans-serif;
+    margin-left: 8px;
 }
 
 .reserve-btn
@@ -155,7 +179,8 @@ form select option
     }
 
     form input,
-    form select {
+    form select,
+    form textarea {
         width: 85%;
         max-width: none;
 
@@ -209,7 +234,7 @@ form select option
 
 client
   .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject("saintcafe"); // 🔴 schimbă aici
+  .setProject("saintcafe");
 
 const databases = new Appwrite.Databases(client);</script>
 
@@ -223,35 +248,39 @@ async function trimiteRezervare() {
     const data = document.getElementById("data").value;
     const ora = document.getElementById("ora").value;
     const locatie = document.getElementById("locatie").value;
+    const persoane = document.getElementById("persoane").value;
+    const mentiuni = document.getElementById("mentiuni").value;
 
-    // 🔒 validare simplă
+    // validare câmpuri obligatorii
     if (!nume || !telefon || !data || !ora || !locatie) {
-      alert("Please fill in all fields");
+      alert("Completează toate câmpurile");
       return;
     }
 
     const response = await databases.createDocument(
-      "6a0883d5003cc55123c5",     // 🔴 schimbă
-      "reservations",   // 🔴 schimbă
+      "6a0883d5003cc55123c5",
+      "reservations",
       Appwrite.ID.unique(),
       {
         nume: nume,
         telefon: telefon,
         data_rezervare: data,
         ora: ora,
-        locatie: locatie
+        locatie: locatie,
+        persoane: persoane ? parseInt(persoane) : null,
+        mentiuni: mentiuni || null
       }
     );
 
     console.log(response);
-    alert("Reservation submitted successfully!");
+    alert("Rezervare trimisă cu succes!");
 
     // reset form
     document.getElementById("reservationForm").reset();
 
   } catch (error) {
     console.log(error);
-    alert("Error submitting reservation");
+    alert("Eroare la trimitere");
   }
 }
 
@@ -300,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // verifică intervalul
         if (totalMinute < oraDeschidere || totalMinute > oraInchidere) {
 
-            alert("You can only reserve between 08:00 and 23:00");
+            alert("Poți rezerva doar între 08:00 și 23:00");
 
             oraInput.value = "";
             return;
@@ -309,11 +338,38 @@ document.addEventListener("DOMContentLoaded", () => {
         // verifică 30 în 30
         if (minute !== 0 && minute !== 30) {
 
-            alert("You can only select intervals of 30 minutes");
+            alert("Poți selecta doar intervale de 30 minute");
 
             oraInput.value = "";
         }
 
+    });
+
+});
+
+function getToday() {
+    return new Date().toISOString().split("T")[0];
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dataInput = document.getElementById("data");
+
+    const today = getToday();
+
+    // setare min (pentru desktop + android)
+    dataInput.min = today;
+
+    // fix iOS: dacă user schimbă manual
+    dataInput.addEventListener("change", () => {
+
+        if (dataInput.value < today) {
+
+            alert("Nu poți selecta o dată din trecut");
+
+            // reset la ziua de azi
+            dataInput.value = today;
+        }
     });
 
 });
@@ -340,6 +396,49 @@ document.addEventListener("DOMContentLoaded", () => {
             });
          });
       </script>
+
+<script>
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dataInput = document.getElementById("data");
+
+    // doar azi+
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+
+    dataInput.min = `${yyyy}-${mm}-${dd}`;
+
+    generateTimeOptions();
+});
+
+function generateTimeOptions() {
+
+    const oraInput = document.getElementById("ora");
+
+    const start = 8 * 60;   // 08:00
+    const end = 23 * 60;   // 23:00
+
+    oraInput.innerHTML = "";
+
+    for (let t = start; t <= end; t += 30) {
+
+        const h = String(Math.floor(t / 60)).padStart(2, "0");
+        const m = String(t % 60).padStart(2, "0");
+
+        const opt = document.createElement("option");
+        opt.value = `${h}:${m}`;
+        opt.textContent = `${h}:${m}`;
+
+        oraInput.appendChild(opt);
+    }
+}
+
+</script>
+
       <div class="main">
       <div id="container">
         <section>              
@@ -350,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <div class="language-switch-text">RO</div>
                                 </button>
                 <div id="row-centre">
-                <img src="./images/logo.png" alt="Coffe Cup" class="home-image">
+                <img src="./images/logo.png" alt="Logo" class="home-image">
                 <br><br><br>
                 <div class="home-buttons">
                     <button role="button" class="button1">Back to homepage</button>
@@ -363,34 +462,33 @@ document.addEventListener("DOMContentLoaded", () => {
         <section>
             <div class="introduction-layer">
             <div class="introduction">
-                <h2 class="introduction-title">Reserve a Table</h2>
+                <h2 class="introduction-title">reserve a table</h2>
             <div class="introduction-content">
                 <form id="reservationForm">
-                    <label for="name">Name:</label>
+                    <label for="nume">Name:</label>
                     <input type="text" id="nume" required>
                     <br><br>
-                    <label for="phone">Phone:</label>
+                    <label for="telefon">Phone:</label>
                     <input type="tel" id="telefon" required>
                     <br><br>
-                    <label for="date">Date:</label>
+                    <label for="data">Date:</label>
                     <input type="date" id="data" required>
                     <br><br>
-                    <label for="time">Time:</label>
-                    <input 
-                    type="time" 
-                    id="ora"
-                    min="08:00"
-                    max="23:00"
-                    step="1800"
-                    required
-                    >
+                    <label for="ora">Time:</label>
+                    <select id="ora" required></select>
                     <br><br>
-                    <label for="location">Inside/Outside/Private Lounge</label>
+                    <label for="locatie">Interior/Outside/Private Lounge</label>
                     <select id="locatie" required>
-                        <option value="interior">Inside</option>
-                        <option value="terasa">Outside</option>
-                        <option value="separeu">Private Lounge</option>
+                        <option value="interior">Interior</option>
+                        <option value="outside">Outside</option>
+                        <option value="private">Private Lounge</option>
                     </select>
+                    <br><br>
+                    <label for="persoane">Number of People <span class="optional-label">(optional)</span></label>
+                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4">
+                    <br><br>
+                    <label for="mentiuni">Notes <span class="optional-label">(optional)</span></label>
+                    <textarea id="mentiuni" placeholder="ex: table by the window, anniversary..."></textarea>
                     <br><br>
                     <button type="button" class="button1 reserve-btn" onclick="trimiteRezervare()">
     Reserve
