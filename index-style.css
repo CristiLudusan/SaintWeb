@@ -119,6 +119,8 @@ body
 {
     margin-top: 150px;
     margin-bottom: 100px
+    pointer-events: none;
+    -webkit-user-drag: none;
 }
 
 .introduction
@@ -442,6 +444,12 @@ body
   transform: scale(1.1);
 }
 
+/* Blochează selectarea textului */
+* {
+    user-select: none;
+}
+
+
 
 @media (max-width: 768px) {
 
@@ -536,6 +544,8 @@ body
         margin-top: 100px;
         margin-bottom: 50px;
         height: 100px;
+        pointer-events: none;
+        -webkit-user-drag: none;
     }
 
     .home-title

@@ -27,6 +27,10 @@ body {
     margin-bottom: 100px;
 }
 
+* {
+    user-select: none;
+}
+
 /* --- BUTOANE MENIU DESKTOP (Peste 769px) --- */
 @media (min-width: 769px) {
     .menu-buttons {
