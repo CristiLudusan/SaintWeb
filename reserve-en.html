@@ -252,8 +252,8 @@ async function trimiteRezervare() {
     const mentiuni = document.getElementById("mentiuni").value;
 
     // validare câmpuri obligatorii
-    if (!nume || !telefon || !data || !ora || !locatie) {
-      alert("Completează toate câmpurile");
+    if (!nume || !telefon || !data || !ora || !locatie || !persoane) {
+      alert("Please fill in all fields");
       return;
     }
 
@@ -267,20 +267,20 @@ async function trimiteRezervare() {
         data_rezervare: data,
         ora: ora,
         locatie: locatie,
-        persoane: persoane ? parseInt(persoane) : null,
+        persoane: parseInt(persoane),
         mentiuni: mentiuni || null
       }
     );
 
     console.log(response);
-    alert("Rezervare trimisă cu succes!");
+    alert("Reservation sent successfully!");
 
     // reset form
     document.getElementById("reservationForm").reset();
 
   } catch (error) {
     console.log(error);
-    alert("Eroare la trimitere");
+    alert("Error sending reservation");
   }
 }
 
@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // verifică intervalul
         if (totalMinute < oraDeschidere || totalMinute > oraInchidere) {
 
-            alert("Poți rezerva doar între 08:00 și 23:00");
+            alert("You can only reserve between 08:00 and 23:00");
 
             oraInput.value = "";
             return;
@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // verifică 30 în 30
         if (minute !== 0 && minute !== 30) {
 
-            alert("Poți selecta doar intervale de 30 minute");
+            alert("You can only select 30-minute intervals");
 
             oraInput.value = "";
         }
@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (dataInput.value < today) {
 
-            alert("Nu poți selecta o dată din trecut");
+            alert("You cannot select a date in the past");
 
             // reset la ziua de azi
             dataInput.value = today;
@@ -484,8 +484,8 @@ function generateTimeOptions() {
                         <option value="private">Private Lounge</option>
                     </select>
                     <br><br>
-                    <label for="persoane">Number of People <span class="optional-label">(optional)</span></label>
-                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4">
+                    <label for="persoane">Number of People</label>
+                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4" required>
                     <br><br>
                     <label for="mentiuni">Notes <span class="optional-label">(optional)</span></label>
                     <textarea id="mentiuni" placeholder="ex: table by the window, anniversary..."></textarea>

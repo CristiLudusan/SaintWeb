@@ -252,7 +252,7 @@ async function trimiteRezervare() {
     const mentiuni = document.getElementById("mentiuni").value;
 
     // validare câmpuri obligatorii
-    if (!nume || !telefon || !data || !ora || !locatie) {
+    if (!nume || !telefon || !data || !ora || !locatie || !persoane) {
       alert("Completează toate câmpurile");
       return;
     }
@@ -267,7 +267,7 @@ async function trimiteRezervare() {
         data_rezervare: data,
         ora: ora,
         locatie: locatie,
-        persoane: persoane ? parseInt(persoane) : null,
+        persoane: parseInt(persoane),
         mentiuni: mentiuni || null
       }
     );
@@ -484,8 +484,8 @@ function generateTimeOptions() {
                         <option value="separeu">Separeu</option>
                     </select>
                     <br><br>
-                    <label for="persoane">Număr persoane <span class="optional-label">(opțional)</span></label>
-                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4">
+                    <label for="persoane">Număr persoane</label>
+                    <input type="number" id="persoane" min="1" max="50" placeholder="ex: 4" required>
                     <br><br>
                     <label for="mentiuni">Mențiuni <span class="optional-label">(opțional)</span></label>
                     <textarea id="mentiuni" placeholder="ex: masă lângă fereastră, aniversare..."></textarea>
